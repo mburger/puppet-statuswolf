@@ -1,51 +1,45 @@
-# Class: standard42::params
+# Class: statuswolf::params
 #
-# This class defines default parameters used by the main module class standard42
+# This class defines default parameters used by the main module class statuswolf
 # Operating Systems differences in names and paths are addressed here
 #
 # == Variables
 #
-# Refer to standard42 class for the variables defined here.
+# Refer to statuswolf class for the variables defined here.
 #
 # == Usage
 #
 # This class is not intended to be used directly.
 # It may be imported or inherited by other classes
 #
-class standard42::params {
+class statuswolf::params {
+
+  ### WebApp specific parameters
+  $install = 'source'
+  $install_dirname = 'statuswolf'
+  $install_precommand = ''
+  $install_postcommand = ''
+  $url_check = ''
+  $url_pattern = 'statuswolf'
+  $web_server = 'apache'
+  $web_server_template = ''
+  $template_auth = 'statuswolf/auth.conf.erb'
+  $template_datasource = 'statuswolf/datasource.conf.erb'
+  $template_statuswolf = 'statuswolf/statuswolf.conf.erb'
+  $web_virtualhost = "$::fqdn"
+  $db_file = '/opt/statuswolf_create_db.sql'
+  $db_file_source = 'puppet:///modules/statuswolf/statuswolf_create_db.sql'
+  $db_type = 'mysql'
+  $db_host = 'localhost'
+  $db_name = 'statuswolf'
+  $db_user = 'statuswolf'
+  $db_password = fqdn_rand(100000000000)
+  $opentsdb_server = 'localhost:4242'
 
   ### Application related parameters
 
   $package = $::operatingsystem ? {
-    default => 'standard42',
-  }
-
-  $service = $::operatingsystem ? {
-    default => 'standard42',
-  }
-
-  $service_status = $::operatingsystem ? {
-    default => true,
-  }
-
-  $process = $::operatingsystem ? {
-    default => 'standard42',
-  }
-
-  $process_args = $::operatingsystem ? {
-    default => '',
-  }
-
-  $process_user = $::operatingsystem ? {
-    default => 'standard42',
-  }
-
-  $config_dir = $::operatingsystem ? {
-    default => '/etc/standard42',
-  }
-
-  $config_file = $::operatingsystem ? {
-    default => '/etc/standard42/standard42.conf',
+    default => 'statuswolf',
   }
 
   $config_file_mode = $::operatingsystem ? {
@@ -60,51 +54,27 @@ class standard42::params {
     default => 'root',
   }
 
-  $config_file_init = $::operatingsystem ? {
-    /(?i:Debian|Ubuntu|Mint)/ => '/etc/default/standard42',
-    default                   => '/etc/sysconfig/standard42',
-  }
-
-  $pid_file = $::operatingsystem ? {
-    default => '/var/run/standard42.pid',
-  }
-
-  $data_dir = $::operatingsystem ? {
-    default => '/etc/standard42',
-  }
-
   $log_dir = $::operatingsystem ? {
-    default => '/var/log/standard42',
+    default => '',
   }
 
   $log_file = $::operatingsystem ? {
-    default => '/var/log/standard42/standard42.log',
+    default => '',
   }
-
-  $port = '42'
-  $protocol = 'tcp'
 
   # General Settings
   $my_class = ''
   $source = ''
   $source_dir = ''
   $source_dir_purge = false
-  $template = ''
   $options = ''
-  $service_autorestart = true
-  $version = 'present'
+  $version = '0.4.5'
   $absent = false
-  $disable = false
-  $disableboot = false
 
   ### General module variables that can have a site or per module default
   $monitor = false
   $monitor_tool = ''
   $monitor_target = $::ipaddress
-  $firewall = false
-  $firewall_tool = ''
-  $firewall_src = '0.0.0.0/0'
-  $firewall_dst = $::ipaddress
   $puppi = false
   $puppi_helper = 'standard'
   $debug = false
