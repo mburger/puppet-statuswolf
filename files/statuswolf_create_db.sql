@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: statuswolf
 -- ------------------------------------------------------
--- Server version	5.5.28
+-- Server version       5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,6 +28,23 @@ CREATE TABLE `auth` (
   `full_name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`username`),
   KEY `password` (`password`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `saved_dashboards`
+--
+
+DROP TABLE IF EXISTS `saved_dashboards`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `saved_dashboards` (
+  `id` varchar(32) NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL,
+  `shared` tinyint(1) NOT NULL,
+  `widgets` mediumtext NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -105,3 +122,4 @@ CREATE TABLE `user_map` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2013-07-26 11:02:34
+

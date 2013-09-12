@@ -68,7 +68,7 @@ class statuswolf::params {
   $source_dir = ''
   $source_dir_purge = false
   $options = ''
-  $version = '0.4.5'
+  $version = '0.5.7'
   $absent = false
 
   ### General module variables that can have a site or per module default

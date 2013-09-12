@@ -378,10 +378,10 @@ class statuswolf (
     }
   }
 
-  # This sets the right permissions for wp-content
+  # This sets the right permissions for statuswolf
   $real_install_postcommand = $install_postcommand ? {
-    ''      => "mkdir -p ${real_data_dir}/cache/{anomaly_model,query_cache} && chown -R ${real_data_dir_user} ${real_data_dir}",
-    default => $install_postcommand,
+    ''      => "bash -c 'mkdir -p ${real_data_dir}/cache/{anomaly_model,query_cache} && chown -R ${real_data_dir_user} ${real_data_dir}'",
+    default => $statuswolf::install_postcommand,
   }
 
   ### Managed resources

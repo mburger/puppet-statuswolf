@@ -16,10 +16,15 @@ class statuswolf::apache {
 
   apache::module { 'rewrite': }
 
-  php::module { 'mysql': }
+  php::module { [ 'mysql', 'curl' ]: }
   php::pear::module {
-    [ 'Auth', 'Log', 'MDB2', 'MDB2#mysqli', 'Math_Stats', 'Math_Histogram-0.9.0' ]:
+    [ 'Auth', 'Log', 'MDB2', 'MDB2#mysqli', 'Math_Stats' ]:
       use_package => false,
+  }
+
+  php::pear::module { 'Math_Histogram-0.9.0':
+    use_package => false,
+    require     => Php::Pear::Module['Math_Stats'],
   }
 
 }
