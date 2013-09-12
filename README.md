@@ -2,11 +2,7 @@
 
 This is a Puppet module for statuswolf based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Made by Alessandro Franceschi / Lab42
-
-Official site: http://www.example42.com
-
-Official git repository: http://github.com/example42/puppet-statuswolf
+Made by Markus Burger (based on the template provided by Alessandro Franceschi)
 
 Released under the terms of Apache 2 License.
 
