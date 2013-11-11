@@ -229,7 +229,8 @@ class statuswolf (
   $data_dir = params_lookup( 'data_dir' ),
   $log_dir = params_lookup( 'log_dir' ),
   $log_file = params_lookup( 'log_file' ),
-  $opentsdb_server = params_lookup( 'opentsdb_server' )
+  $opentsdb_server = params_lookup( 'opentsdb_server' ),
+  $d3_location = params_lookup( 'd3_location' )
   ) inherits statuswolf::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)

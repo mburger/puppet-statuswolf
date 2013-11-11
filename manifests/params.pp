@@ -35,6 +35,7 @@ class statuswolf::params {
   $db_user = 'statuswolf'
   $db_password = fqdn_rand(100000000000)
   $opentsdb_server = 'localhost:4242'
+  $d3_location = 'http://d3js.org/d3.v3.min.js'
 
   ### Application related parameters
 
